@@ -22,13 +22,14 @@ lang: en
   04  .text.writer     ................................................ notation
   05  .debug.vmmap     .................................................. vm map
   06  .note.rules      ............................................. hard errors
+  07  .note.refs       ......................................... source material
 
 [ 0. Summary ]─────────────────────────────────────────────────────────────//───
 
     primitive : ANSI foreground color over fixed-width text
     inline    : \#[role|text]
     block     : --[ ink ]-- + text lane + mask lane
-    palette   : Tokyo Night ANSI, 16 foreground roles
+    palette   : Tokyo Night ANSI [0][1], 16 foreground roles
     failure   : #[R|unknown roles fail the build]
 
 ANSI ink is a small notation layer for `.phile` text.  It has two jobs:
@@ -77,8 +78,9 @@ Escaping is local:
 
 [ 2. Palette ]─────────────────────────────────────────────────────────────//───
 
-The palette is ANSI-shaped, not domain-shaped.  It is small enough to memorize
-and strict enough to fail fast when a typo slips into a phile.
+The palette follows Tokyo Night terminal colors [1], but remains ANSI-shaped,
+not domain-shaped.  It is small enough to memorize and strict enough to fail
+fast when a typo slips into a phile.
 
     .--[ palette ABI ]-------------------------------.
     | 16 names in, one deterministic foreground out. |
@@ -249,5 +251,14 @@ Accepted mask bytes:
 
 Everything else is rejected.  A typo in color notation should fail like a typo
 in an address, a register name, or an exploit constant.
+
+[ 7. References ]──────────────────────────────────────────────────────────//───
+
+    [0] Tokyo Night VS Code theme
+        https://github.com/tokyo-night/tokyo-night-vscode-theme
+
+    [1] Tokyo Night iTerm ANSI palette
+        file : tokyo-night.itermcolors
+        repo : tokyo-night/tokyo-night-vscode-theme
 
 --[ end of grammar ]-------------------------------------------------------//---
