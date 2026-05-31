@@ -84,6 +84,12 @@ export const siteConfig: SiteConfig = {
           href: "https://memos.cubeyond.net/",
           external: true,
           prefix: "~ call"
+        },
+        {
+          label: "kofi@plt",
+          href: "https://ko-fi.com/cub3y0nd",
+          external: true,
+          prefix: "~ call"
         }
       ]
     }
