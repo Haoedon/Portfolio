@@ -1,0 +1,122 @@
+Entropic
+========
+
+Entropic is a retro textmode blog theme for purists.
+
+It is built as a modern Astro site, but the reading surface is intentionally
+plain: fixed-width text, ASCII frames, ANSI-style color, volume indexes, and
+`.phile` documents.
+
+
+Quick Start
+-----------
+
+* Install dependencies:
+
+        pnpm install --frozen-lockfile
+
+* Run the local server:
+
+        pnpm dev
+
+* Check the site:
+
+        pnpm check
+
+* Build the static output:
+
+        pnpm build
+
+* Regenerate font assets after changing CJK coverage:
+
+        pnpm assets:fonts
+
+
+Essential Files
+---------------
+
+The usual entry points are:
+
+* Site identity and home page text:
+
+        src/config/site.ts
+
+* Volume names, ordering, and postscripts:
+
+        src/config/volumes.ts
+
+* Textmode appearance:
+
+        src/config/appearance.ts
+
+* Motion effects:
+
+        src/config/effects.ts
+
+* Articles:
+
+        src/content/philes/volume-*/**/*.phile
+
+* Phile parser and rendering:
+
+        src/modules/philes/
+        src/modules/textmode/
+
+
+Philes
+------
+
+Articles are written in `.phile` files. Each phile has YAML frontmatter and a
+plain text body.
+
+Required frontmatter:
+
+* title
+* date
+* author
+
+Optional frontmatter:
+
+* order
+* subtitle
+* redacted
+
+If `redacted: true` is set, the public route renders the redacted page. The
+repository hook also unstages redacted philes before commit.
+
+
+Volumes
+-------
+
+URLs are organized by volume:
+
+        /volume/0/
+        /volume/0/<phile-name>/
+
+Volume configuration controls title, postscript, entry labels, and sorting.
+If no explicit order is configured for a volume, philes sort by date descending.
+
+
+Hooks
+-----
+
+Enable repository hooks in a fresh clone with:
+
+        git config core.hooksPath scripts/hooks
+
+The pre-commit hook scans staged `.phile` files and unstages any phile whose
+frontmatter contains:
+
+        redacted: true
+
+The worktree file is not modified.
+
+
+Deployment
+----------
+
+The site builds to static files and is deployed on Vercel.
+
+The production build does not regenerate font assets. Generated font files and
+CJK atlas assets are committed so Vercel does not need local font tooling such
+as `pyftsubset`.
