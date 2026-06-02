@@ -72,7 +72,10 @@ export const siteConfig: SiteConfig = {
       title: "Contact",
       items: [
         { label: "root -at- cubeyond -dot- net" },
-        { label: "Discord: cub3y0nd" },
+        {
+          label: "PGP Encryption Key",
+          href: "/key.asc",
+        },
         {
           label: "github@plt",
           href: "https://github.com/CuB3y0nd/",
