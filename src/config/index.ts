@@ -1,5 +1,7 @@
 export type { AppearanceConfig } from "./appearance";
 export { appearanceConfig } from "./appearance";
+export type { CveRecord } from "./cves";
+export { cveRecords } from "./cves";
 export type {
   EffectsConfig,
   HomeAsciiGlitchConfig,

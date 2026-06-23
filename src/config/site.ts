@@ -49,7 +49,8 @@ export const siteConfig: SiteConfig = {
           linkLabel: "@RaptX",
           href: "https://raptx.org/",
           external: true
-        }
+        },
+        { label: "My CVEs", href: "/cves/" }
       ]
     },
     {
