@@ -45,7 +45,7 @@ jobs:
 
       # 3. Устанавливаем зависимости через pnpm
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --no-frozen-lockfile
         working-directory: ${{ env.BUILD_PATH }}
 
       # 4. Собираем проект (настройки домена подтянутся из astro.config.mjs)
