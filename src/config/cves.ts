@@ -24,6 +24,5 @@ export const cveRecords: CveRecord[] = [
     id: "CVE-2020-1472",
     title: "Zerologon",
     date: "2026-05-23"
-  },
-  
+  }
 ];

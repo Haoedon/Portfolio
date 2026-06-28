@@ -38,8 +38,7 @@ export const volumeConfigs = new Map<number, VolumeConfig>([
         "  ──[ 0x51 ]─────────────────────────────────────────────────────────────────//───",
         "",
         "  Humans are merely biofuel for science.",
-        "",
-        
+        ""
       ]
     }
   ],
