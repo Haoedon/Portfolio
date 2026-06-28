@@ -37,9 +37,9 @@ export const volumeConfigs = new Map<number, VolumeConfig>([
       postscript: [
         "  ──[ 0x51 ]─────────────────────────────────────────────────────────────────//───",
         "",
-        "  What is this unseen flame of darkness whose sparks are the stars?",
+        "  Humans are merely biofuel for science.",
         "",
-        "  Tagore, Stray Birds"
+        
       ]
     }
   ],
@@ -47,7 +47,7 @@ export const volumeConfigs = new Map<number, VolumeConfig>([
     1,
     {
       title: "Historical Philes",
-      listLabel: "Volume 1 - Historical Philes",
+      listLabel: "Volume 1 - Network Analysis",
       postscript: [
         "  ──[ EOF ]──────────────────────────────────────────────────────────────────//───",
         "",
@@ -67,7 +67,7 @@ export const volumeConfigs = new Map<number, VolumeConfig>([
     2,
     {
       title: "Year-End Wrap-ups",
-      listLabel: "Volume 2 - Year-End Wrap-ups",
+      listLabel: "Volume 2 - Best write-ups",
       postscript: [
         "  ──[ 0x146 ]────────────────────────────────────────────────────────────────//───",
         "",
@@ -87,7 +87,7 @@ export const volumeConfigs = new Map<number, VolumeConfig>([
     3,
     {
       title: "Chromatic Philes",
-      listLabel: "Volume 3 - Chromatic Philes",
+      listLabel: "Volume 3 - Сreating CTF challenges",
       postscript: [
         "  ──[ SGR ]──────────────────────────────────────────────────────────────────//───",
         "",

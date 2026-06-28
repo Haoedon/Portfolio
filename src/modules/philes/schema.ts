@@ -9,5 +9,6 @@ export const phileSchema = z.object({
   lang: z.enum(["en", "zh"]).default("en"),
   slug: z.string().optional(),
   order: z.number().int().nonnegative().optional(),
-  redacted: z.boolean().default(false)
+  redacted: z.boolean().default(false),
+  external_url: z.string().optional()
 });

@@ -36,7 +36,7 @@ function renderToc(volume: Volume): string {
         index,
         phile.data.title,
         phile.data.date,
-        phile.route.href,
+        phile.data.external_url ? phile.data.external_url : phile.route.href,
         phile.data.author,
         entryLabelWidth
       )
@@ -64,7 +64,10 @@ function renderTocLine(
   const tail = ` ${author}`;
   const titleWidth = Math.max(1, tocInnerWidth - cellWidth(prefix) - cellWidth(tail) - 6);
   const displayTitle = truncateCells(entryTitle, titleWidth);
-  const titleLink = link(href, displayTitle);
+  const isExternal = href.startsWith('http://') || href.startsWith('https://');
+  const titleLink = isExternal 
+  ? `<a href="${href}" target="_blank" rel="noopener noreferrer" class="textmode-link">${escapeHtml(displayTitle)}</a>`
+  : link(href, displayTitle);
   const visibleLeft = `${prefix}${displayTitle}`;
   const dots = ".".repeat(Math.max(3, tocInnerWidth - cellWidth(visibleLeft) - cellWidth(tail) - 3));
 
