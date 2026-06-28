@@ -39,6 +39,7 @@ const particlesEnabled = effectsConfig.particles.enable;
     <meta property="og:description" content={description} />
     <meta property="og:type" content={pageType} />
     <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={new URL("/og-image.png", Astro.site)} />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
@@ -59,6 +60,19 @@ const particlesEnabled = effectsConfig.particles.enable;
     {preloadCjk && <link rel="preload" href="/assets/cjk/wqy-cjk-body.png" as="image" />}
     {preloadCjk && <link rel="preload" href="/assets/cjk/wqy-cjk-link.png" as="image" />}
     <title>{tabTitle}</title>
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "${siteConfig.name}",
+        "url": "${Astro.site}",
+        "author": {
+          "@type": "Person",
+          "name": "Haoedon",
+          "jobTitle": "Information Security Student"
+        }
+      }
+    </script>
   </head>
   <body data-mobile-fit-breakpoint={mobileFitBreakpoint} data-particles-enabled={particlesEnabled}>
     <slot />
