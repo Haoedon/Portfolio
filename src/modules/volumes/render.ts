@@ -1,5 +1,5 @@
 import { textmodeConfig, volumeConfig } from "../../config";
-import { escapeHtml, link, textHtml } from "../textmode/core/html";
+import { escapeHtml, textHtml } from "../textmode/core/html";
 import { cellWidth, padCells, truncateCells } from "../textmode/core/layout";
 import { lifeFrameLineHtml, lifeFrameLines } from "../textmode/life/art";
 import { volumeTitle } from "./labels";
@@ -65,9 +65,13 @@ function renderTocLine(
   const titleWidth = Math.max(1, tocInnerWidth - cellWidth(prefix) - cellWidth(tail) - 6);
   const displayTitle = truncateCells(entryTitle, titleWidth);
   const isExternal = href.startsWith("http://") || href.startsWith("https://");
+
+  const _linkClasses = "text-blue-400 hover:text-blue-300 hover:underline cursor-pointer relative z-10";
+
   const titleLink = isExternal
-    ? `<a href="${href}" target="_blank" rel="noopener noreferrer" class="textmode-link">${escapeHtml(displayTitle)}</a>`
-    : link(href, displayTitle);
+    ? `<a href="${href}" target="_blank" rel="noopener noreferrer" class="textmode-link ${_linkClasses}">${escapeHtml(displayTitle)}</a>`
+    : `<a href="${href}" class="textmode-link ${_linkClasses}">${escapeHtml(displayTitle)}</a>`;
+
   const visibleLeft = `${prefix}${displayTitle}`;
   const dots = ".".repeat(Math.max(3, tocInnerWidth - cellWidth(visibleLeft) - cellWidth(tail) - 3));
 

@@ -56,3 +56,60 @@ a:focus-visible {
   max-width: 100vw;
   overflow-x: auto;
 }
+/* Усиленные правила для ссылок (защита от Tailwind Preflight) */
+.screen a,
+.textmode-wrap a,
+.phile-wrap a,
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+.screen a:hover,
+.screen a:focus-visible,
+.textmode-wrap a:hover,
+.textmode-wrap a:focus-visible,
+.phile-wrap a:hover,
+.phile-wrap a:focus-visible,
+a:hover,
+a:focus-visible {
+  background: var(--link-hover-bg);
+  color: var(--link-hover);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  outline: 0;
+}
+
+/* Терминальные заголовки с сохранением сетки */
+.screen h1,
+.screen h2,
+.screen h3,
+.screen h4,
+.screen h5,
+.screen h6,
+.phile-wrap h1,
+.phile-wrap h2,
+.phile-wrap h3,
+.phile-wrap h4,
+.phile-wrap h5,
+.phile-wrap h6 {
+  font-weight: bold;
+  color: var(--fg);
+  margin-top: calc(var(--text-size) * 2);
+  margin-bottom: var(--text-size);
+  line-height: 1.2;
+}
+
+.screen h1,
+.phile-wrap h1 {
+  font-size: calc(var(--text-size) * 1.5);
+}
+.screen h2,
+.phile-wrap h2 {
+  font-size: calc(var(--text-size) * 1.25);
+}
+.screen h3,
+.phile-wrap h3 {
+  font-size: calc(var(--text-size) * 1.1);
+}
