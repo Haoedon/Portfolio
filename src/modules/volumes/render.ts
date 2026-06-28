@@ -66,7 +66,7 @@ function renderTocLine(
   const displayTitle = truncateCells(entryTitle, titleWidth);
   const isExternal = href.startsWith("http://") || href.startsWith("https://");
   const titleLink = isExternal
-    ? `<a·href="${href}"·target="_blank"·rel="noopener·noreferrer"·class="textmode-link">${escapeHtml(displayTitle)}</a>`
+    ? `<a href="${href}" target="_blank" rel="noopener noreferrer" class="textmode-link">${escapeHtml(displayTitle)}</a>`
     : link(href, displayTitle);
   const visibleLeft = `${prefix}${displayTitle}`;
   const dots = ".".repeat(Math.max(3, tocInnerWidth - cellWidth(visibleLeft) - cellWidth(tail) - 3));
